@@ -21,6 +21,9 @@ public class Point {
     }
 
     public double distanceTo(final Point point) {
-        throw new UnsupportedOperationException();
+        double dx2 = (x - point.x);
+        double dy2 = (y - point.y);
+        double dr = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+        return dr;
     }
 }
