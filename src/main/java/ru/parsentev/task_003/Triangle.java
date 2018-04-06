@@ -1,7 +1,6 @@
 package ru.parsentev.task_003;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ru.parsentev.task_002.Point;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -15,21 +14,32 @@ import static org.slf4j.LoggerFactory.getLogger;
 public class Triangle {
     private static final Logger log = getLogger(Triangle.class);
 
-    protected final Point first;
-    protected final Point second;
-    protected final Point third;
+    protected final Point a;
+    protected final Point b;
+    protected final Point c;
 
-    public Triangle(final Point first, final Point second, final Point third) {
-        this.first = first;
-        this.second = second;
-        this.third = third;
+    public Triangle(final Point a, final Point b, final Point c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
+        double ab = a.distanceTo(b);
+        double ac = a.distanceTo(c);
+        double cb = c.distanceTo(b);
+        if(ab + ac == cb || ab + cb == ac || ac + cb == ab)
+            return false;
+        else return true;
     }
 
     public double area() {
-        throw new UnsupportedOperationException();
+        double ab = a.distanceTo(b);
+        double ac = a.distanceTo(c);
+        double cb = c.distanceTo(b);
+        if (exists()) {
+            double p = (ab + ac + cb) / 2;
+            return Math.sqrt(p * (p - ab) * (p - ac) * (p - cb));
+        } else throw new IllegalStateException();
     }
 }
