@@ -1,7 +1,10 @@
 package ru.parsentev.task_010;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -18,7 +21,22 @@ public class Brackets {
         this.line = line;
     }
 
+
     public boolean isCorrect() {
-        throw new UnsupportedOperationException();
+        char[] c = line.toCharArray();
+        int l = 0;
+        int r = 0;
+        for (char c1 : c) {
+            switch (c1) {
+                case '(':
+                    l++;
+                    break;
+                case ')':
+                    r++;
+            }
+        }
+        if (l == r) {
+            return true;
+        } else return false;
     }
 }
