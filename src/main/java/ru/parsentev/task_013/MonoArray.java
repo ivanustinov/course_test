@@ -21,6 +21,12 @@ public class MonoArray {
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
+        int i = values[0];
+        for (int value : values) {
+            if (i != value) {
+                return false;
+            }
+        }
+        return true;
     }
 }

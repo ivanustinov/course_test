@@ -19,6 +19,12 @@ public class ArrayContainsOne {
     }
 
     public boolean containsOnlyOne() {
-        throw new UnsupportedOperationException();
+        for (int value : values) {
+            if (value == 1) {
+                continue;
+            }
+            else return false;
+        }
+        return true;
     }
 }
