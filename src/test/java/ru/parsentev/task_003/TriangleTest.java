@@ -1,8 +1,8 @@
-package ru.parsentev.task_003;
+package ru.job4j.task_003;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import ru.parsentev.task_002.Point;
+import ru.parsentev.task_003.Triangle;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -10,10 +10,9 @@ import static org.junit.Assert.*;
 /**
  * TODO: comment
  *
- * @author parsentev
+ * @author job4j
  * @since 28.07.2016
  */
-//@Ignore
 public class TriangleTest {
     @Test
     public void calculateArea() {
@@ -21,7 +20,7 @@ public class TriangleTest {
         Point second = new Point(0, 2);
         Point third = new Point(2, 0);
         double result = new Triangle(first, second, third).area();
-        assertThat(result, is(2d));
+        assertThat(result, is(2.0));
     }
 
     @Test

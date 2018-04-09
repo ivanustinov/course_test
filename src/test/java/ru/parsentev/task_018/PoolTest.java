@@ -5,7 +5,7 @@ import org.junit.Test;
 import ru.parsentev.task_015.CycleShift;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * TODO: comment
@@ -13,12 +13,12 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class PoolTest {
     @Test
     public void multi() {
         Pool pool = new Pool(
-                new int[][] {
+                new int[][]{
                         {1, 0, 0},
                         {1, 1, 0},
                         {0, 0, 1}
@@ -31,7 +31,7 @@ public class PoolTest {
     @Test
     public void one() {
         Pool pool = new Pool(
-                new int[][] {
+                new int[][]{
                         {1, 1, 1},
                         {1, 1, 1},
                         {1, 1, 1}

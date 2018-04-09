@@ -2,6 +2,8 @@ package ru.parsentev.task_017;
 
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -14,14 +16,18 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 public class CashMachine {
     private static final Logger log = getLogger(CashMachine.class);
-
+    int t = 0;
     private final int[] values;
 
     public CashMachine(final int[] values) {
         this.values = values;
     }
 
-    public List<List<Integer>> exchange(int note) {
-        throw new UnsupportedOperationException();
+    public static void main(String[] args) {
+
+    }
+
+    public List<List<Integer>> exchange(int i) {
+        throw  new UnsupportedOperationException();
     }
 }

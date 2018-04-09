@@ -23,21 +23,18 @@ public class CycleShift {
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(new CycleShift(new int[]{0, 1, 2}).shift(2)));
-        ;
     }
 
     public int[] shift(int position) {
         int i = values[0];
         int g = position;
-        int count = 0;
         int v = 0;
-        while (count < values.length) {
+        for (int count = 0; count < values.length; count++) {
             g = g % values.length;
             v = values[g];
             values[g] = i;
             g += position;
             i = v;
-            count++;
         }
 
         return values;
