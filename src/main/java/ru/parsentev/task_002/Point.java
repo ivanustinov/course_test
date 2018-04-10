@@ -12,12 +12,25 @@ import static org.slf4j.LoggerFactory.getLogger;
 public class Point {
     private static final Logger log = getLogger(Point.class);
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     private final int x;
     private final int y;
 
     public Point(final int x, final int y) {
         this.x = x;
         this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "Точка:(x - " + x + " y - " + y + ")";
     }
 
     public double distanceTo(final Point point) {

@@ -16,32 +16,34 @@ public class Pool {
     private static final Logger log = getLogger(Pool.class);
 
     private final int[][] values;
-    TreeSet<Integer> i = new TreeSet<>();
+
 
     public Pool(final int[][] values) {
         this.values = values;
     }
 
     public static void main(String[] args) {
-
+        System.out.println(new Pool(new int[][]{
+                {1, 0},
+                {1, 0}
+        }).maxUnion());
     }
 
-    public void counts(int x, int y, int result, int[][] values) {
-        int[] t = new int[]{-1, 1};
+    public int counts(int x, int y, int result, int[][] values) {
+        int[] t = new int[]{-1, 0, 1, 0};
+        int[] r = new int[]{0, 1, 0, -1};
+        TreeSet<Integer> g = new TreeSet<>();
         if (values[x][y] == 1) {
             result++;
             values[x][y] = 0;
-            for (int i = 0; i < 2; i++) {
-                if (checkStep(x, y, t[i], 0)) {
-                    counts(x + t[i], y, result, values);
-                }
-                if (checkStep(x, y, 0, t[i])) {
-                    counts(x, y + t[i], result, values);
+            for (int i = 0; i < 4; i++) {
+                if (checkStep(x, y, t[i], r[i])) {
+                    g.add(counts(x + t[i], y + r[i], result, values));
                 }
             }
-        } else if (result > i.last()) {
-            i.add(result);
         }
+        g.add(result);
+        return g.last();
     }
 
     public boolean checkStep(int x, int y, int stepX, int stepY) {
@@ -52,12 +54,12 @@ public class Pool {
 
 
     public int maxUnion() {
-        i.add(0);
+        TreeSet<Integer> g = new TreeSet<>();
         for (int i = 0; i < values.length; i++) {
             for (int j = 0; j < values.length; j++) {
-                counts(i, j, 0, values);
+                g.add(counts(i, j, 0, values));
             }
         }
-        return i.last();
+        return g.last();
     }
 }

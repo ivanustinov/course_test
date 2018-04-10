@@ -17,9 +17,10 @@ public class TicTacToeTest {
     public void hasWinner() {
         TicTacToe game = new TicTacToe(
                 new int[][] {
-                        {1, 0, 0},
-                        {1, 1, 0},
-                        {0, 0, 1}
+                        {1, 0, 1, 0},
+                        {0, 1, 0, 0},
+                        {1, 0, 0, 1},
+                        {0, 0, 1, 0}
                 }
         );
         boolean result = game.hasWinner();
@@ -29,8 +30,8 @@ public class TicTacToeTest {
     public void hasWinner2() {
         TicTacToe game = new TicTacToe(
                 new int[][] {
-                        {1, 0, 1},
-                        {0, 1, 0},
+                        {0, 1, 1},
+                        {0, 0, 0},
                         {1, 0, 1}
                 }
         );

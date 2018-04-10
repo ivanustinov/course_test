@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+//@Ignore
 public class CashMachineTest {
     @Test
     public void unchange() {
@@ -29,7 +29,7 @@ public class CashMachineTest {
 
     @Test
     public void change() {
-        CashMachine machine = new CashMachine(new int[] {1, 5, 10});
+        CashMachine machine = new CashMachine(new int[] {10, 5, 1});
         List<List<Integer>> result = machine.exchange(10);
         assertThat(
                 result, is(

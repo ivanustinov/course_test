@@ -63,8 +63,8 @@
                 <version>3.3</version>
                 <configuration>
                     <compilerVersion>3.3</compilerVersion>
-                    <source>7</source>
-                    <target>7</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>

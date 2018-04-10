@@ -23,11 +23,17 @@ public class TicTacToe {
 
     public boolean hasWinner() {
         boolean result = false;
-        if (traversal(0, 0, START, 0, 1) ||
-                traversal(0, 0, START, 1, 0) ||
-                traversal(0, 0, START, 1, 1)||
-                traversal(2, 0, START, -1, 1)) {
-            result = true;
+        cycles:
+        for (int x = 0; x < values.length; x++) {
+            for (int y = 0; y < values.length; y++) {
+                if (traversal(x, y, START, 0, 1) ||
+                        traversal(x, y, START, 1, 0) ||
+                        traversal(x, y, START, 1, 1) ||
+                        traversal(x, y, START, -1, 1)) {
+                    result = true;
+                    break cycles;
+                }
+            }
         }
         return result;
     }
@@ -37,8 +43,8 @@ public class TicTacToe {
         if (count == 3) {
             result = true;
         } else {
-            if (x + stepX < values.length && y + stepY < values.length &&
-                    values[x][y] == values[x + stepX][y + stepY] && values[x][y] == 1) {
+            if (x + stepX < values.length && y + stepY < values.length && x + stepX >= 0 && y + stepY >= 0
+                    && values[x][y] == values[x + stepX][y + stepY]) {
                 result = traversal(x + stepX, y + stepY, count + 1, stepX, stepY);
             }
         }

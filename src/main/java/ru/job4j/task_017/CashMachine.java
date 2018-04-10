@@ -32,7 +32,7 @@ public class CashMachine {
             if (rsl == 0) {
                 data.add(new ArrayList<>(Collections.singletonList(value)));
             } else {
-                for (List<Integer> sub : this.exchange(rsl, index)) {
+                for (List<Integer> sub : exchange(rsl, index)) {
                     sub.add(value);
                     data.add(sub);
                 }
