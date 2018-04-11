@@ -26,9 +26,11 @@ public class Maze {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Maze(new int[][]{{1, 0, 0},
-                                                {1, 1, 1},
-                                                {1, 1, 1}}).solution(new Point(0, 0), new Point(1, 2)));
+        System.out.println(new Maze(new int[][]{
+                {1, 0, 0, 0},
+                {1, 1, 1, 1},
+                {1, 1, 1, 1},
+                {0, 0, 0, 0}}).solution(new Point(0, 0), new Point(1, 3)));
     }
 
     public List<Point> solution(Point start, Point finish) {

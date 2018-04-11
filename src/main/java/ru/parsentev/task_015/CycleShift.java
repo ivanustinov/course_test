@@ -28,15 +28,13 @@ public class CycleShift {
     public int[] shift(int position) {
         int i = values[0];
         int g = position;
-        int v = 0;
         for (int count = 0; count < values.length; count++) {
             g = g % values.length;
-            v = values[g];
+            int v = values[g];
             values[g] = i;
             g += position;
             i = v;
         }
-
         return values;
     }
 }
